@@ -1,0 +1,30 @@
+[package]
+name = "raft_base"
+version = "0.1.0"
+edition = "2021"
+default-run = "railyard"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "railyard"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+clap = { version = "4.4.6", features = ["cargo"] }
+prost = "0.12.1"
+rustls = "0.21.7"
+tokio = { version = "1.32.0", features = ["macros", "rt-multi-thread"] }
+tonic = { version = "0.10.2", features = ["tls"] }
+rand = "0.8.5"
+uuid = { version = "1.5.0", features = ["v4"] }
+log = "0.4.14"
+env_logger = { version = "0.10.0", features = [] }
+anyhow = "1.0.75"
+
+[build-dependencies]
+tonic-build = "0.10.2"
